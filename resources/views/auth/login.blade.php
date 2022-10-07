@@ -4,12 +4,13 @@
 @endsection
 @section('content')
 
-<div class='font-mono h-screen w-screen p-[10%] grid items-center justify-center bg-gray-100 sm:grid-cols-2 xl:grid-cols-3'>
+<div class='font-mono h-screen w-screen p-[10%] grid items-center justify-center sm:grid-cols-2 xl:grid-cols-3' style='background-color: #eee;'>
     <div class='bg-white w-full rounded-xl drop-shadow-md p-[5%]'>
         <header class='flex justify-center text-2xl font-bold'>
             Usa tus credenciales para iniciar sesion.
         </header>
-        <form action="#" method="post" class='flex flex-col p-2 gap-3 mt-3'>
+        <form method="POST" action="{{ route('login') }}" class='flex flex-col p-2 gap-3 mt-3'>
+            @csrf
             <label for="email" class='font-bold'>Email</label>
             <div class='relative flex items-center'>
                 <svg class='absolute h-4 w-4 ml-3 pointer-events-none' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -25,6 +26,10 @@
                 </svg>
                 <input class='border-none ring-2 ring-orange-100 focus:ring-2 hover:ring-orange-400 focus:ring-orange-400 h-9 w-full pr-3 pl-10 bg-gray-100 rounded-xl' type="password" name="password" id="password">
             </div>
+            <div class='flex items-center w-full'>
+                <input class="p-5" type="checkbox" name="remember" id="remember">
+                <label for="remember">Recuerda me</label>
+            </div>
             
             <button class='bg-orange-400 hover:bg-orange-500 hover:h-11 rounded-md h-9 text-gray-100 font-bold' type="submit">Iniciar</button>
         </form>
@@ -32,6 +37,11 @@
             <span>O</span>
             <a href="{{ route('register') }}" class='hover:text-sky-700 hover:underline'>Pincha aqui para registrarte</a>
         </footer>
+        @if(Session::has('mensaje'))
+            <div>
+                {{ Session::get('mensaje') }}
+            </div>
+        @endif
 
     </div>
 </div>
