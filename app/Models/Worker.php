@@ -12,5 +12,6 @@ class Worker extends Model
     protected $fillable = [
         'rut',
         'last_name',
+        'company_rut',
     ];
 }

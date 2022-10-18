@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->string('last_name', 100);
             $table->string('phone', 12);
             $table->string('email');
             $table->timestamps();
-
             //foreign key company
+            $table->string('company_rut');
+            $table->foreign('company_rut')->references('rut')->on('companies');
+            
         });
     }
 

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('workers', function (Blueprint $table) {
             $table->string('rut')->primary();
             $table->string('last_name', 50);
-            $table->timestamps();
             $table->string('company_rut');
+            $table->timestamps();
             //foreign key user
             $table->foreign('rut')->references('rut')->on('users');
             $table->foreign('company_rut')->references('rut')->on('companies');

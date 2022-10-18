@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreWorkerRequest;
 use App\Http\Requests\UpdateWorkerRequest;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Worker;
 
@@ -16,7 +17,9 @@ class WorkerController extends Controller
     }
 
     public function create(Request $request){
-
+        $company_rut = auth()->user()->rut; 
+        // dd($company_rut);
+        // dd($request);
         //Validation Data
         $this->validate($request, [
             'rut' => 'required|min:8|unique:users',
@@ -25,7 +28,7 @@ class WorkerController extends Controller
             'email' =>'required|email|unique:users|min:10',
             'password' =>'required|min:6|confirmed',
         ]);
-        dd($request);
+        //dd($request);
         //Create worker in user table
         User::create([
             'rut' => $request->rut,
@@ -37,6 +40,7 @@ class WorkerController extends Controller
         Worker::create([
             'rut' => $request->rut,
             'last_name' => $request->last_name,
+            'company_rut' => $company_rut,
         ]);
     }
 }

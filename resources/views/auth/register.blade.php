@@ -8,7 +8,7 @@
         <header class='flex justify-center text-2xl font-bold'>
             Rellena el formulario para registrarte.
         </header>
-        <form action="{{ route('register.post') }}" method="POST" class='flex flex-col p-2 gap-3 mt-3'>
+        <form action="{{ route('register') }}" method="POST" class='flex flex-col p-2 gap-3 mt-3'>
             @csrf
             <label for="rut_empresa" class='font-bold'>Rut</label>
             <div class='relative flex items-center'>

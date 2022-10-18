@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('address');
             $table->timestamps();
             //foreign key
-            $table->foreign('rut')->references('rut')->on('users');
+            $table->foreign('rut')->references('rut')->on('users')->onDelete('cascade');
         });
     }
 

@@ -26,9 +26,9 @@
             <div id='menu' class='h-full flex justify-between flex-col hidden p-3 xl:inline-flex lg:inline-flex sm:inline-flex'>
                 <div class='flex flex-col '>
                     <a class='flex justify-end p-3 rounded-md hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start' href="{{ route('project') }}">Proyectos</a>
-                    <a class='flex justify-end p-3 rounded-md hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start' href="">Clientes</a>
+                    <a class='flex justify-end p-3 rounded-md hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start' href="{{ route('clients') }}">Clientes</a>
                     <a class='flex justify-end p-3 rounded-md hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start' href="{{ route('workers') }}">Trabajadores</a>
-                    <a class='flex justify-end p-3 rounded-md hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start' href="">Equipos</a>
+                    <a class='flex justify-end p-3 rounded-md hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start' href="{{ route('equipment') }}">Equipos</a>
                 </div>
                 <div>
                     <a href="{{ route('logout') }}" class='flex justify-end p-3 rounded-md text-red-900 hover:bg-orange-600 xl:justify-start lg:justify-start sm:justify-start text-red'>
