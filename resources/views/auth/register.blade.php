@@ -9,7 +9,7 @@
             Rellena el formulario para registrarte.
         </header>
         {{-- Formulario de registro mediante livewire --}}
-        <livewire:login-auth-form>
+        @livewire('register-auth')
         
         <footer class='flex items-center justify-center flex-col font-bold'>
             <span>O</span>
