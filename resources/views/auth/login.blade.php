@@ -9,17 +9,16 @@
         <header class='flex justify-center text-2xl font-bold'>
             Usa tus credenciales para iniciar sesion.
         </header>
+<<<<<<< HEAD
         <livewire:login-auth-form>
         
+=======
+        @livewire('login-auth')
+>>>>>>> 998b9c6eada7c51953cd61f70ffbf789b5c13025
         <footer class='flex items-center justify-center flex-col font-bold'>
             <span>O</span>
             <a href="{{ route('register') }}" class='hover:text-sky-700 hover:underline'>Pincha aqui para registrarte</a>
         </footer>
-        @if(Session::has('mensaje'))
-            <div>
-                {{ Session::get('mensaje') }}
-            </div>
-        @endif
 
     </div>
 </div>
