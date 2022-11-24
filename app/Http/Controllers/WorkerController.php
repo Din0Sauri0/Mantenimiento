@@ -13,7 +13,8 @@ class WorkerController extends Controller
 {
     public function index()
     {
-        return view('workers');
+        $worker = Worker::all();
+        return view('workers', compact('worker'));
     }
 
     public function create(Request $request){

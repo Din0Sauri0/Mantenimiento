@@ -3,22 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+//Facades
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+//Models
+use App\Models\User;
+use App\Models\Company;
 
 class LoginAuthForm extends Component
 {
-
-    public $rut;
-    public $name;
-    public $address;
     public $email;
     public $password;
+    public $remember;
 
     protected $rules = [
-        'rut' => 'required|min:8|unique:users',
-        'name' => 'required|min:3',
-        'email' => 'required|min:10|unique:users|email',
-        'password' => 'required|confirmed|min:6',
-        'address' => 'required|min:10'
+        'email' => 'required',
+        'password' => 'required',
+        'remember' => 'nullable',
     ];
 
     public function updated($propertyName){
@@ -31,7 +32,12 @@ class LoginAuthForm extends Component
     }
 
     public function save(){
-        $validateDate = $this->validate();
-        dd($validateDate);
+        $validateData = $this->validate();
+        $remember = array_pop($validateData);
+        if(Auth::attempt($validateData, $remember)){
+            request()->session()->regenerate();
+            return redirect()->route('project');
+        }
+        return redirect('/login');
     }
 }
